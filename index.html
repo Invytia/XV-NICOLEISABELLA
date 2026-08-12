@@ -61,7 +61,8 @@
         /* --- SOBRE EDITORIAL --- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(11, 47, 49, 0.8), rgba(11, 47, 49, 0.8)), url('assets/fondo.jpg') no-repeat center center/cover; 
+            /* Capa más tenue (0.3 de opacidad en lugar de 0.8) para resaltar el fondo */
+            background: linear-gradient(rgba(11, 47, 49, 0.3), rgba(11, 47, 49, 0.3)), url('assets/fondo.jpg') no-repeat center center/cover; 
             z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 1.2s ease-in-out, visibility 1.2s;
         }
@@ -125,7 +126,8 @@
             transition: opacity 0.5s ease 0.1s, transform 0.5s ease;
         }
         
-        .wax-seal img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
+        /* Se eliminó el filter: drop-shadow para quitar el sombreado del icono */
+        .wax-seal img { width: 100%; height: 100%; object-fit: contain; }
         .envelope-wrapper.open .wax-seal { opacity: 0; transform: translateX(-50%) scale(0.5); pointer-events: none; }
 
         .hint-text {
@@ -304,6 +306,22 @@
         select.input-line { appearance: none; text-align-last: center; cursor: pointer; }
         select.input-line option { background-color: var(--bg-cream); color: var(--text-dark); }
 
+        /* Pie de página (Footer) */
+        .invytia-footer {
+            width: 100%; padding: 40px 20px; text-align: center; 
+            background-color: var(--bg-dark); color: var(--accent-gold);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        
+        .invytia-footer .designed-by {
+            font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 6px; 
+            text-transform: uppercase; font-weight: 300; margin-bottom: 8px; opacity: 0.8;
+        }
+        
+        .invytia-footer .brand-name {
+            font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 5px; font-weight: 500;
+        }
+
         /* Responsive Móvil */
         @media (max-width: 450px) {
             .env-title { font-size: 65px; }
@@ -320,7 +338,6 @@
 <body>
 
     <!-- AUDIO OCULTO -->
-    <!-- Nota: La creación original de canciones exclusivas requiere ruta al asset real. -->
     <audio id="bg-music" src="assets/song.mp3" loop></audio>
 
     <!-- BOTÓN STICKY DE MÚSICA -->
@@ -598,12 +615,18 @@
         </section>
 
         <!-- Despedida (Foto 13) -->
-        <section class="section-block bg-cream" style="padding-bottom: 150px;">
+        <section class="section-block bg-cream" style="padding-bottom: 120px;">
             <div class="anim-element anim-zoom delay-1 title-script" style="font-size: 80px;">Te espero</div>
             <div class="anim-element anim-fade-up delay-2 photo-frame" style="margin-top: 40px; border: 8px solid #fff;">
                 <img src="assets/foto13.jpg" alt="Despedida" onerror="this.style.display='none'">
             </div>
         </section>
+
+        <!-- FOOTER INVYTIA PREMIUM -->
+        <footer class="invytia-footer">
+            <div class="designed-by">Diseñado por</div>
+            <div class="brand-name">INVYTIA PREMIUM</div>
+        </footer>
 
     </main>
 
