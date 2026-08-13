@@ -7,17 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Pinyon+Script&family=Montserrat:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Editorial Citrus Grove */
-            --bg-cream: #F2E9D8;        /* Cream Zest */
-            --bg-dark: #0B2F31;         /* Midnight Cypress */
-            --bg-teal: #14736E;         /* Evergreen Tide */
-            --accent-olive: #5A6B3D;    /* Olive Leaf */
-            --accent-orange: #F28C18;   /* Sunlit Tangerine */
-            --accent-gold: #F6B23D;     /* Citrus Glow */
+            /* Paleta Editorial Crema y Beige */
+            --bg-cream: #FDFBF7;        /* Tono base muy claro (Crema) */
+            --bg-beige: #F4EFE6;        /* Tono intermedio (Arena/Beige suave) */
+            --bg-taupe: #EBE4D8;        /* Tono profundo (Beige cálido) */
             
-            --text-dark: #0B2F31;       
-            --text-light: #F2E9D8;      
-            --text-muted: #5A6B3D;      
+            --accent-gold: #C2A578;     /* Dorado apagado elegante */
+            --accent-dark: #8C7553;     /* Dorado oscuro para detalles de contraste */
+            
+            --text-dark: #362D26;       /* Café espresso oscuro para legibilidad */
+            --text-muted: #7A6F65;      /* Café grisáceo para textos secundarios */
             
             --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -42,7 +41,7 @@
             position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
             background-color: var(--accent-gold); border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 10px 25px rgba(246, 178, 61, 0.4); z-index: 2000;
+            box-shadow: 0 10px 25px rgba(194, 165, 120, 0.4); z-index: 2000;
             cursor: pointer; opacity: 0; visibility: hidden;
             transform: translateY(20px) scale(0.9);
             transition: all 0.6s var(--transition-smooth); border: none; outline: none;
@@ -53,7 +52,7 @@
         }
 
         .sticky-music-btn:hover {
-            transform: scale(1.1); background-color: var(--accent-orange);
+            transform: scale(1.1); background-color: var(--text-dark);
         }
 
         .sticky-music-btn svg { width: 18px; height: 18px; fill: #fff; }
@@ -61,8 +60,8 @@
         /* --- SOBRE EDITORIAL --- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            /* Capa más tenue (0.3 de opacidad en lugar de 0.8) para resaltar el fondo */
-            background: linear-gradient(rgba(11, 47, 49, 0.3), rgba(11, 47, 49, 0.3)), url('assets/fondo.jpg') no-repeat center center/cover; 
+            /* Capa tenue para resaltar el fondo con un ligero tinte cálido */
+            background: linear-gradient(rgba(54, 45, 38, 0.3), rgba(54, 45, 38, 0.3)), url('assets/fondo.jpg') no-repeat center center/cover; 
             z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 1.2s ease-in-out, visibility 1.2s;
         }
@@ -78,12 +77,14 @@
 
         .env-tag {
             font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 8px;
-            text-transform: uppercase; color: var(--accent-gold); font-weight: 500;
+            text-transform: uppercase; color: var(--bg-cream); font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .env-title {
             font-family: 'Pinyon Script', cursive; font-size: 85px;
             color: var(--bg-cream); line-height: 1.2; margin-top: 5px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
         .envelope-wrapper {
@@ -94,27 +95,27 @@
 
         .envelope {
             position: relative; width: 320px; height: 210px; background-color: var(--bg-cream);
-            border-radius: 2px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid rgba(0,0,0,0.03);
+            border-radius: 2px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(0,0,0,0.03);
         }
 
         .envelope::before {
             content: ''; position: absolute; top: 0; right: 0;
-            border-right: 160px solid #e8decb; border-top: 105px solid transparent;
-            border-bottom: 105px solid #e8decb; z-index: 2;
+            border-right: 160px solid #EAE4D9; border-top: 105px solid transparent;
+            border-bottom: 105px solid #EAE4D9; z-index: 2;
         }
         
         .envelope::after {
             content: ''; position: absolute; top: 0; left: 0;
-            border-left: 160px solid #e3d8c3; border-top: 105px solid transparent;
-            border-bottom: 105px solid #e3d8c3; z-index: 2;
+            border-left: 160px solid #E3DCCF; border-top: 105px solid transparent;
+            border-bottom: 105px solid #E3DCCF; z-index: 2;
         }
 
         .front-flap {
             position: absolute; top: 0; left: 0;
             border-left: 160px solid transparent; border-right: 160px solid transparent;
-            border-top: 115px solid #eedec3; transform-origin: top;
+            border-top: 115px solid #DFD7C8; transform-origin: top;
             transition: transform 0.9s var(--transition-smooth); z-index: 4;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
         }
 
         .envelope-wrapper.open .front-flap { transform: rotateX(180deg); z-index: 1; }
@@ -126,14 +127,13 @@
             transition: opacity 0.5s ease 0.1s, transform 0.5s ease;
         }
         
-        /* Se eliminó el filter: drop-shadow para quitar el sombreado del icono */
         .wax-seal img { width: 100%; height: 100%; object-fit: contain; }
         .envelope-wrapper.open .wax-seal { opacity: 0; transform: translateX(-50%) scale(0.5); pointer-events: none; }
 
         .hint-text {
             text-align: center; font-size: 11px; font-weight: 400; text-transform: uppercase; 
             letter-spacing: 4px; color: var(--bg-cream); margin-top: 40px; 
-            animation: pulse 2.5s infinite;
+            animation: pulse 2.5s infinite; text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
@@ -170,36 +170,33 @@
         .delay-4 { transition-delay: 0.55s; }
         .delay-5 { transition-delay: 0.7s; }
 
-        /* Estructura de Secciones */
+        /* Estructura de Secciones Tonos Beige */
         .section-block {
             width: 100%; padding: 120px 20px; display: flex; flex-direction: column; align-items: center; text-align: center;
             position: relative; overflow: hidden;
         }
 
         .bg-cream { background-color: var(--bg-cream); }
-        .bg-teal { background-color: var(--bg-teal); color: var(--text-light); }
-        .bg-dark { background-color: var(--bg-dark); color: var(--text-light); }
+        .bg-beige { background-color: var(--bg-beige); }
+        .bg-taupe { background-color: var(--bg-taupe); }
 
         /* Tipografía Editorial */
         .tag-line {
             font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 6px;
             text-transform: uppercase; color: var(--accent-gold); margin-bottom: 25px; font-weight: 500;
         }
-        .bg-cream .tag-line { color: var(--accent-orange); }
 
         .title-script {
             font-family: 'Pinyon Script', cursive; font-size: 90px;
             margin-bottom: 20px; line-height: 1; font-weight: 400;
             color: var(--text-dark);
         }
-        .bg-dark .title-script, .bg-teal .title-script { color: var(--accent-gold); }
 
         .body-serif {
             font-family: 'Cormorant Garamond', serif; font-size: 24px;
             line-height: 1.6; color: var(--text-muted); font-style: italic;
             max-width: 650px; padding: 0 15px; font-weight: 400;
         }
-        .bg-dark .body-serif, .bg-teal .body-serif { color: var(--text-light); opacity: 0.9; }
 
         .line-divider { width: 1px; height: 80px; background-color: var(--accent-gold); margin: 35px auto; }
         .line-horizontal { width: 80px; height: 1px; background-color: var(--accent-gold); margin: 50px auto; }
@@ -207,7 +204,7 @@
         /* Imágenes */
         .photo-frame {
             width: 100%; max-width: 450px; margin: 40px auto;
-            box-shadow: 0 25px 60px rgba(11, 47, 49, 0.15); border-radius: 2px;
+            box-shadow: 0 25px 60px rgba(54, 45, 38, 0.12); border-radius: 2px;
             overflow: hidden; position: relative; z-index: 2;
         }
         .photo-frame img { width: 100%; display: block; filter: contrast(1.05) saturate(0.95); transition: transform 0.8s ease; }
@@ -222,25 +219,24 @@
         .info-data {
             font-family: 'Cormorant Garamond', serif; font-size: 38px;
             margin-bottom: 5px; font-weight: 400; line-height: 1.2;
+            color: var(--text-dark);
         }
 
         /* Botones Editoriales */
         .btn-solid {
-            display: inline-block; background-color: var(--bg-dark); color: var(--bg-cream);
+            display: inline-block; background-color: var(--text-dark); color: var(--bg-cream);
             padding: 18px 40px; font-family: 'Montserrat', sans-serif; font-size: 12px;
             font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
-            text-decoration: none; border: 1px solid var(--accent-gold); cursor: pointer; border-radius: 2px;
+            text-decoration: none; border: 1px solid var(--text-dark); cursor: pointer; border-radius: 2px;
             transition: all 0.4s ease; margin-top: 30px; position: relative; z-index: 5;
         }
-        .btn-solid:hover { background-color: var(--accent-gold); color: var(--bg-dark); transform: translateY(-3px); }
-        .bg-dark .btn-solid, .bg-teal .btn-solid { background-color: transparent; border-color: var(--accent-gold); color: var(--accent-gold); }
-        .bg-dark .btn-solid:hover, .bg-teal .btn-solid:hover { background-color: var(--accent-gold); color: var(--bg-dark); }
+        .btn-solid:hover { background-color: var(--accent-gold); color: var(--bg-cream); border-color: var(--accent-gold); transform: translateY(-3px); }
 
         /* Widget de Calendario Editorial */
         .calendar-wrapper {
             width: 100%; max-width: 360px; margin: 50px auto; padding: 40px 30px;
-            background: var(--bg-cream); border-radius: 2px; box-shadow: 0 20px 50px rgba(11, 47, 49, 0.2);
-            box-sizing: border-box; border: 1px solid rgba(0,0,0,0.05); position: relative; z-index: 2;
+            background: var(--bg-cream); border-radius: 2px; box-shadow: 0 20px 50px rgba(54, 45, 38, 0.1);
+            box-sizing: border-box; border: 1px solid rgba(0,0,0,0.03); position: relative; z-index: 2;
         }
 
         .calendar-month {
@@ -255,26 +251,26 @@
 
         .cal-header {
             font-family: 'Montserrat', sans-serif; font-size: 11px;
-            font-weight: 600; color: var(--accent-olive); padding-bottom: 12px;
+            font-weight: 600; color: var(--accent-gold); padding-bottom: 12px;
         }
 
         .cal-day {
             font-family: 'Cormorant Garamond', serif; font-size: 18px;
-            font-weight: 400; color: var(--text-dark); display: flex; justify-content: center; align-items: center;
+            font-weight: 400; color: var(--text-muted); display: flex; justify-content: center; align-items: center;
             aspect-ratio: 1;
         }
 
         .cal-day.active {
-            background-color: var(--accent-orange); color: #fff; border-radius: 50%; 
-            font-weight: 600; box-shadow: 0 4px 15px rgba(242, 140, 24, 0.4);
+            background-color: var(--accent-dark); color: #fff; border-radius: 50%; 
+            font-weight: 600; box-shadow: 0 4px 15px rgba(140, 117, 83, 0.3);
         }
 
         /* Mapas */
         .map-box {
             width: 100%; max-width: 600px; height: 350px; margin: 35px auto;
-            overflow: hidden; border-radius: 2px; box-shadow: 0 20px 45px rgba(0,0,0,0.15); position: relative; z-index: 2;
+            overflow: hidden; border-radius: 2px; box-shadow: 0 20px 45px rgba(54, 45, 38, 0.1); position: relative; z-index: 2;
         }
-        .map-box iframe { width: 100%; height: 100%; border: none; filter: grayscale(20%) sepia(10%); }
+        .map-box iframe { width: 100%; height: 100%; border: none; filter: grayscale(30%) sepia(20%); }
 
         /* Itinerario */
         .timeline-item {
@@ -284,7 +280,7 @@
             font-family: 'Cinzel', serif; font-size: 18px; color: var(--accent-gold); letter-spacing: 2px; margin-bottom: 10px;
         }
         .timeline-desc {
-            font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--text-light);
+            font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--text-dark);
         }
 
         /* Formularios RSVP */
@@ -292,15 +288,13 @@
         
         .input-line {
             width: 100%; padding: 20px 0; background: transparent; border: none;
-            border-bottom: 1px solid rgba(11, 47, 49, 0.2); color: var(--text-dark);
+            border-bottom: 1px solid rgba(54, 45, 38, 0.2); color: var(--text-dark);
             font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 400; outline: none;
             text-align: center; transition: border-color 0.4s;
         }
-        .bg-dark .input-line, .bg-teal .input-line { border-bottom-color: rgba(242, 233, 216, 0.3); color: var(--bg-cream); }
         
-        .input-line:focus { border-bottom-color: var(--accent-orange); }
+        .input-line:focus { border-bottom-color: var(--accent-dark); }
         .input-line::placeholder { color: var(--text-muted); font-style: normal; opacity: 0.7; }
-        .bg-dark .input-line::placeholder, .bg-teal .input-line::placeholder { color: var(--bg-cream); opacity: 0.5; }
         
         textarea.input-line { resize: vertical; min-height: 100px; }
         select.input-line { appearance: none; text-align-last: center; cursor: pointer; }
@@ -308,8 +302,8 @@
 
         /* Pie de página (Footer) */
         .invytia-footer {
-            width: 100%; padding: 40px 20px; text-align: center; 
-            background-color: var(--bg-dark); color: var(--accent-gold);
+            width: 100%; padding: 50px 20px; text-align: center; 
+            background-color: var(--text-dark); color: var(--accent-gold);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
@@ -378,7 +372,7 @@
         </section>
 
         <!-- Mensaje Especial (Foto 2) -->
-        <section class="section-block bg-teal">
+        <section class="section-block bg-beige">
             <div class="anim-element anim-zoom delay-1">
                 <svg viewBox="0 0 24 24" style="width: 40px; height: 40px; fill: var(--accent-gold); margin-bottom: 20px;">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -399,7 +393,7 @@
         <section class="section-block bg-cream">
             <div class="anim-element anim-fade-left delay-1 info-title">Celebremos este día el</div>
             <div class="anim-element anim-fade-right delay-2 info-data" style="font-size: 45px;">7 de Noviembre</div>
-            <div class="anim-element anim-zoom delay-3 info-data" style="font-size: 26px; color: var(--accent-olive); letter-spacing: 4px;">2026</div>
+            <div class="anim-element anim-zoom delay-3 info-data" style="font-size: 26px; color: var(--accent-dark); letter-spacing: 4px;">2026</div>
 
             <div class="anim-element anim-fade-up delay-4 calendar-wrapper">
                 <div class="calendar-month">Noviembre</div>
@@ -421,24 +415,24 @@
         </section>
 
         <!-- Padres y Padrinos (Foto 4) -->
-        <section class="section-block bg-dark">
-            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-orange);">En compañía de mis padres</div>
+        <section class="section-block bg-taupe">
+            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-dark);">En compañía de mis padres</div>
             <div class="anim-element anim-fade-right delay-2 info-data">Héctor Alejandro Dávalos López</div>
             <div class="anim-element anim-fade-left delay-3 info-data">Viridiana Nayeli Rizo Torres</div>
             
             <div class="anim-element anim-zoom delay-4 line-horizontal" style="margin: 60px auto;"></div>
             
-            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-orange);">Y mis Padrinos</div>
+            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-dark);">Y mis Padrinos</div>
             <div class="anim-element anim-fade-right delay-2 info-data" style="font-size: 32px;">Alfonso Ulises García Muñoz</div>
             <div class="anim-element anim-fade-left delay-3 info-data" style="font-size: 32px;">Vania Berenice Barrones Herrera</div>
 
-            <div class="anim-element anim-fade-up delay-4 photo-frame" style="margin-top: 80px; box-shadow: 0 25px 60px rgba(0,0,0,0.4);">
+            <div class="anim-element anim-fade-up delay-4 photo-frame" style="margin-top: 80px;">
                 <img src="assets/foto4.jpg" alt="Familia" onerror="this.style.display='none'">
             </div>
         </section>
 
         <!-- Itinerario (Foto 5) -->
-        <section class="section-block bg-teal">
+        <section class="section-block bg-beige">
             <div class="anim-element anim-zoom delay-1 info-title">El Programa</div>
             <div class="anim-element anim-fade-up delay-2 info-data" style="font-size: 45px; margin-bottom: 50px;">Itinerario</div>
 
@@ -494,23 +488,23 @@
         </section>
 
         <!-- Dress Code (Foto 8) -->
-        <section class="section-block bg-dark">
-            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-orange);">Dress Code</div>
-            <div class="anim-element anim-zoom delay-2 info-data" style="font-family: 'Cinzel', serif; font-size: 45px; margin: 25px 0; letter-spacing: 5px; color: var(--text-light);">
+        <section class="section-block bg-taupe">
+            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-dark);">Dress Code</div>
+            <div class="anim-element anim-zoom delay-2 info-data" style="font-family: 'Cinzel', serif; font-size: 45px; margin: 25px 0; letter-spacing: 5px;">
                 FORMAL
             </div>
-            <div class="anim-element anim-zoom delay-3 line-divider" style="background-color: var(--accent-olive); height: 40px;"></div>
-            <p class="anim-element anim-fade-up delay-4 body-serif" style="color: var(--bg-cream); font-size: 22px;">
+            <div class="anim-element anim-zoom delay-3 line-divider" style="height: 40px;"></div>
+            <p class="anim-element anim-fade-up delay-4 body-serif" style="font-size: 22px;">
                 Para mantener la elegancia de nuestra celebración, solicitamos de la manera más atenta apegarse a nuestro código de vestimenta.
                 <br><br>
-                <strong style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 2px; color: var(--accent-gold);">MUJERES: VESTIDO LARGO (OBLIGATORIO)</strong><br>
-                <strong style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 2px; color: var(--accent-gold);">HOMBRES: TRAJE O FORMAL</strong>
+                <strong style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 2px; color: var(--accent-dark);">MUJERES: VESTIDO LARGO (OBLIGATORIO)</strong><br>
+                <strong style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 16px; letter-spacing: 2px; color: var(--accent-dark);">HOMBRES: TRAJE O FORMAL</strong>
                 <br><br>
-                <span style="display: block; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 5px;">Colores Sugeridos</span>
+                <span style="display: block; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 5px;">Colores Sugeridos</span>
                 Verde, azul, amarillo, naranja, beige, café y negro
             </p>
 
-            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 80px; box-shadow: 0 25px 60px rgba(0,0,0,0.4);">
+            <div class="anim-element anim-fade-up delay-5 photo-frame" style="margin-top: 80px;">
                 <img src="assets/foto8.jpg" alt="Dress Code" onerror="this.style.display='none'">
             </div>
         </section>
@@ -520,10 +514,10 @@
             <div class="anim-element anim-fade-up delay-1 info-title">Mesa de Regalos</div>
             
             <div class="anim-element anim-zoom delay-2" style="display: flex; gap: 20px; justify-content: center; margin: 30px 0;">
-                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-orange);">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-gold);">
                     <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
-                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-orange);">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px; fill: var(--accent-gold);">
                     <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76 12 7.4l1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
                 </svg>
             </div>
@@ -539,7 +533,7 @@
         </section>
 
         <!-- Playlist Spotify (Foto 10) -->
-        <section class="section-block bg-teal">
+        <section class="section-block bg-beige">
             <div class="anim-element anim-fade-up delay-1 info-title">Nuestra Música</div>
             <div class="anim-element anim-fade-up delay-2 info-data">Ayúdame a armar la playlist</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 25px auto 40px auto; font-size: 22px;">
@@ -547,7 +541,7 @@
             </p>
             
             <div class="anim-element anim-zoom delay-4" style="width: 100%; max-width: 500px; position: relative; z-index: 2; margin-bottom: 30px;">
-                <iframe data-testid="embed-iframe" style="border-radius:12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" src="https://open.spotify.com/embed/playlist/0PPmTdepR1lJ7ZXo0GdJlX?utm_source=generator&si=d6744a258b2d4c16" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" style="border-radius:12px; box-shadow: 0 20px 40px rgba(54, 45, 38, 0.1);" src="https://open.spotify.com/embed/playlist/0PPmTdepR1lJ7ZXo0GdJlX?utm_source=generator&si=d6744a258b2d4c16" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
             
             <a href="https://open.spotify.com/playlist/0PPmTdepR1lJ7ZXo0GdJlX?si=5ceb55fb4f234d89&pt=25ade98f0cfb3a4980e013308174f324" target="_blank" class="anim-element anim-fade-up delay-5 btn-solid">Agregar Canciones</a>
@@ -573,8 +567,8 @@
         </section>
 
         <!-- RSVP y Mensajes (Foto 12) -->
-        <section class="section-block bg-dark">
-            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-orange);">Asistencia</div>
+        <section class="section-block bg-taupe">
+            <div class="anim-element anim-fade-up delay-1 info-title" style="color: var(--accent-dark);">Asistencia</div>
             <div class="anim-element anim-zoom delay-2 info-data">Confirmar RSVP</div>
             <p class="anim-element anim-fade-up delay-3 body-serif" style="margin: 20px auto 40px auto; font-size: 22px;">
                 Por favor, confirma tu asistencia para considerarte en esta gran noche.
@@ -602,7 +596,7 @@
 
             <div class="anim-element anim-fade-up line-horizontal" style="margin: 20px auto 70px auto;"></div>
 
-            <div class="anim-element anim-fade-left delay-1 info-title" style="color: var(--accent-orange);">Libro de Firmas</div>
+            <div class="anim-element anim-fade-left delay-1 info-title" style="color: var(--accent-dark);">Libro de Firmas</div>
             <div class="anim-element anim-fade-right delay-2 info-data">Muro de los Deseos</div>
             <div class="anim-element anim-fade-up delay-3 form-group" style="margin-top: 40px;">
                 <input type="text" id="wish-name" class="input-line" placeholder="De parte de...">
